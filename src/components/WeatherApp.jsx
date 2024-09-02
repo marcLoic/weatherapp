@@ -11,13 +11,12 @@ const WeatherApp = () => {
   const [data, setData] = useState({})
   const [location, setLocation] = useState('')
   const [loading, setLoading] = useState(false)
-  const api_key = 'b37523bc4a2d80603945b710e851bbeb'
 
   useEffect(() => {
     const fetchdefaultWeather = async () => {
       setLoading(true)
       const defaultLocation = "Tbilisi"
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${defaultLocation}&units=Metric&appid=${api_key}`
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${defaultLocation}&units=Metric&appid=${import.meta.env.VITE_WEATHER_APP_API_KEY}`
       const res = await fetch(url)
       const defaultData = await res.json()
       setData(defaultData)
@@ -33,7 +32,7 @@ const WeatherApp = () => {
 
   const search = async () => {
     if(location.trim() !== "") {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=Metric&appid=${api_key}`
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=Metric&appid=${import.meta.env.VITE_WEATHER_APP_API_KEY}`
       const res = await fetch(url)
       const searchData = await res.json()
       if(searchData.cod !== 200) {
