@@ -11,4 +11,9 @@
 
 
 Tools used 
-- 
+- Vite
+- react
+- javascript
+- BoxIcons
+- Google fonts : Lilita
+- fontawesome
